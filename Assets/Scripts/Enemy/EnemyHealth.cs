@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private float maxHealth = 30f;
+    [SerializeField] private GameObject itemPickupPrefab;
     private float currentHealth;
 
     private void Awake()
@@ -13,7 +14,6 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
-        Debug.Log($"{gameObject.name} kena damage {damage}, sisa HP: {currentHealth}");
 
         if (currentHealth <= 0)
         {
@@ -23,7 +23,10 @@ public class EnemyHealth : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log($"{gameObject.name} mati!");
+        if (itemPickupPrefab != null)
+        {
+            Instantiate(itemPickupPrefab, transform.position, Quaternion.identity);
+        }
 
         Destroy(gameObject);
     }
