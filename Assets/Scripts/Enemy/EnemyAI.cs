@@ -11,6 +11,11 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float attackDamage = 5f;
     [SerializeField] private float attackCooldown = 1.5f;
 
+    [Header("Separation")]
+    [SerializeField] private float separationRadius = 1f;
+    [SerializeField] private float separationForce = 3f;
+    [SerializeField] private LayerMask enemyLayer;
+
     private Transform player;
     private Rigidbody2D rb;
     private float lastAttackTime;
@@ -28,24 +33,44 @@ public class EnemyAI : MonoBehaviour
         if (player == null) return;
 
         float distance = Vector2.Distance(transform.position, player.position);
+        Vector2 separation = GetSeparationForce();
 
         if (distance <= attackRange)
         {
-            // Cukup deket buat nyerang, berhenti gerak
-            rb.linearVelocity = Vector2.zero;
+            rb.linearVelocity = separation * separationForce;
             TryAttack();
         }
         else if (distance <= detectionRange)
         {
-            // Kejar Player
-            Vector2 direction = (player.position - transform.position).normalized;
-            rb.linearVelocity = direction * moveSpeed;
+            Vector2 chaseDirection = (player.position - transform.position).normalized;
+            Vector2 finalDirection = chaseDirection + separation;
+            rb.linearVelocity = finalDirection.normalized * moveSpeed;
         }
         else
         {
-            // Player di luar jangkauan, diem aja
             rb.linearVelocity = Vector2.zero;
         }
+    }
+
+    private Vector2 GetSeparationForce()
+    {
+        Vector2 pushAway = Vector2.zero;
+        Collider2D[] nearbyEnemies = Physics2D.OverlapCircleAll(transform.position, separationRadius, enemyLayer);
+
+        foreach (Collider2D col in nearbyEnemies)
+        {
+            if (col.gameObject == gameObject) continue;
+
+            Vector2 diff = (Vector2)transform.position - (Vector2)col.transform.position;
+            float dist = diff.magnitude;
+
+            if (dist > 0)
+            {
+                pushAway += diff.normalized / dist;
+            }
+        }
+
+        return pushAway;
     }
 
     private void TryAttack()
