@@ -25,9 +25,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ToggleInventory",
+                    "name": "Interact",
                     "type": "Button",
-                    "id": "76c567cf-f589-4132-962d-66d9c5d6a2bc",
+                    "id": "30196c2d-d471-4f44-8b7c-3ea980a3d7ee",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -103,12 +103,12 @@
                 },
                 {
                     "name": "",
-                    "id": "f6d7e3a6-71ef-4556-9dca-ee07d6f376d5",
-                    "path": "<Keyboard>/tab",
+                    "id": "44c26f07-1f29-4c06-989b-c953451a3251",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ToggleInventory",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
