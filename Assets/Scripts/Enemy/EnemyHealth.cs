@@ -8,6 +8,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private GameObject itemPickupPrefab;
     private float currentHealth;
     private SpriteRenderer spriteRenderer;
+    private Coroutine flashCoroutine;
 
     private void Awake()
     {
@@ -19,8 +20,14 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHealth -= damage;
 
-        StartCoroutine(FlashRed());
+        if (flashCoroutine != null)
+        {
+            
+            StopCoroutine(flashCoroutine);
+        }
 
+        flashCoroutine = StartCoroutine(FlashRed());
+        
         if (currentHealth <= 0)
         {
             Die();
@@ -32,6 +39,7 @@ public class EnemyHealth : MonoBehaviour
         spriteRenderer.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         spriteRenderer.color = Color.white;
+        flashCoroutine = null;
     }
 
     private void Die()

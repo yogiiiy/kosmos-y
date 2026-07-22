@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4437997222156032283}
   - component: {fileID: 834590995205939342}
   m_Layer: 0
-  m_Name: ItemPickUp
+  m_Name: BatWingPU
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: c289c09775a39604da756dc857b7d97f, type: 3}
+  m_Sprite: {fileID: -6924487958838884716, guid: 38453de6924c33440be7aa53d06d65d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -141,4 +141,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 826ed73256c0eae44bfed86ee79d15ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemPickup
-  itemData: {fileID: 11400000, guid: 637501c12609c7246ad9aa03c07a2813, type: 2}
+  itemData: {fileID: 11400000, guid: e1c7d1cbc1c8a6c49a6404e300b2466a, type: 2}
