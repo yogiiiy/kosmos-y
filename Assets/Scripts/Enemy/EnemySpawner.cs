@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject slimePrefab;
+    [SerializeField] private GameObject[] enemyPrefabs;
     [SerializeField] private Transform[] spawnPoints;
 
     private void Start()
@@ -14,7 +14,8 @@ public class EnemySpawner : MonoBehaviour
     {
         foreach (Transform point in spawnPoints)
         {
-            Instantiate(slimePrefab, point.position, Quaternion.identity);
+            GameObject randomEnemy = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
+            Instantiate(randomEnemy, point.position, Quaternion.identity);
         }
     }
 }

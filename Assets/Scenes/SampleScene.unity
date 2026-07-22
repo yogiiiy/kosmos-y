@@ -46389,13 +46389,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6a590294846f6447a3e7e12f48cef16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
-  slimePrefab: {fileID: 6644003794539375973, guid: d517b23bab53c8247bd41080a4fa213a, type: 3}
+  enemyPrefabs:
+  - {fileID: 6644003794539375973, guid: d517b23bab53c8247bd41080a4fa213a, type: 3}
+  - {fileID: 6644003794539375973, guid: 6113fe1e3c89b2c4a9a01a13d1cb420f, type: 3}
   spawnPoints:
   - {fileID: 1032405651}
-  - {fileID: 879700620}
-  - {fileID: 790217913}
-  - {fileID: 209652192}
-  - {fileID: 1812875763}
 --- !u!4 &1563325720
 Transform:
   m_ObjectHideFlags: 0
