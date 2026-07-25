@@ -15,3 +15,4 @@ MonoBehaviour:
   itemName: Bat Wing
   icon: {fileID: 21300000, guid: 38453de6924c33440be7aa53d06d65d1, type: 3}
   sellPrice: 5
+  description: A leathery wing from a cave bat
