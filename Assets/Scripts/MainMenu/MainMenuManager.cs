@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 /// <summary>
 /// Handle tombol Play & Quit di Main Menu.
@@ -12,6 +13,19 @@ public class MainMenuManager : MonoBehaviour
 
     [Header("Panel Options (di-assign di Inspector)")]
     [SerializeField] private GameObject optionsPanel;
+
+    [Header("Tombol Quit (di-assign di Inspector, buat di-hide di WebGL)")]
+    [SerializeField] private Button quitButton;
+
+    void Start()
+    {
+#if UNITY_WEBGL && !UNITY_EDITOR
+        if (quitButton != null)
+        {
+            quitButton.gameObject.SetActive(false);
+        }
+#endif
+    }
 
     // Dipanggil dari Button "Play" -> OnClick()
     public void OnPlayPressed()
@@ -41,8 +55,6 @@ public class MainMenuManager : MonoBehaviour
     public void OnQuitPressed()
     {
 #if UNITY_WEBGL && !UNITY_EDITOR
-        // WebGL (browser) gak bisa "quit" aplikasi.
-        // Tombol Quit sebaiknya di-hide khusus build WebGL (lihat SETUP_GUIDE.md).
         Debug.LogWarning("Quit tidak berfungsi di WebGL build.");
 #else
         Application.Quit();

@@ -500,6 +500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuManager
   gameplaySceneName: Gameplay
   optionsPanel: {fileID: 572828665}
+  quitButton: {fileID: 486720048}
 --- !u!224 &306823118
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1326,7 +1327,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -2006,7 +2007,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -2559,7 +2560,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
